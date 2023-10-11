@@ -3,7 +3,7 @@ name: Sync Garmin Global to Garmin CN
 on:
   workflow_dispatch:
   schedule:
-    #  每6小时检查一次
+    #  每 1 小时检查一次
     - cron: "0 */1 * * *"
 
 env:
@@ -33,6 +33,6 @@ jobs:
       - run: yarn
       - run: yarn sync_global
         timeout-minutes: 5
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Save Garmin Session
